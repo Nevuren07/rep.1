@@ -1,43 +1,43 @@
 import java.util.Scanner;
 public class edad {
     public static void main(String[] args) {
-        int edad,entr,f;
+        int edad,precio;
         double total;
+        char carnet;
         Scanner sc=new Scanner(System.in);
         System.out.println("introduce tu edad");
         edad=sc.nextInt();
-       while (edad<0) {
-        System.out.println("ERROR:. introduce una edad válida");
-        edad=sc.nextInt();
-       }
+        while (edad<0 || edad>100){
+            System.out.println("ERROR:. introduce una edad válida");
+            edad=sc.nextInt();
+        }
         if(edad<5){
             System.out.println("tu entrada es gratuita");
-            entr=0;
+            precio=0;
         } else if(edad<12){
             System.out.println("Tu entrada cuesta 5 €");
-            entr=5;
+            precio=5;
         }else if(edad>=65){
             System.out.println("Tu entrada cuesta 3€");
-            entr=3;
+            precio=3;
         }else{
             System.out.println("Tu entrada cuesta 10€");
-            entr=10;
+            precio=10;
         }
-        System.out.println("¿tiene carnet de familia numerosa?(0 para si, 1 para no)");
-        f=sc.nextInt();
-        while(f!=0 && f!=1){
+        System.out.println("¿tiene carnet de familia numerosa?(S/N)");
+        carnet=sc.next().charAt(0);
+        
+        while(carnet!='S' && carnet!='s' && carnet!='N' && carnet!='n'){
             System.out.println("ERROR:. Comprueba que has introducido bien los datos");
-             f=sc.nextInt();
+            carnet=sc.next().charAt(0);  
         }
-        if(f==0){
-            total=0.2*entr;
-            System.out.println("El total con el descuento aplicado es "+total+" €");
-        }else if(f==1)
-            {System.out.println("No se te aplicará ningun descuento");
-
-            }else{
-                System.out.println("ERROR:. Comprueba que has introducido bien los datos");
-            }
-       
-}
+         if(edad >= 65){
+            System.out.println("No se le aplicará ningun descuento ya que es mayor de 65 años");
+        }else if(carnet=='S'|| carnet=='s'){
+            total=precio-(precio*0.2);
+            System.out.println("Tu entrada con el descuento aplicado costará "+total+"€");
+        }else if(carnet=='N' || carnet=='n'){
+            System.out.println("No se le aplicará ningun descuento");    
+        }
+    }
 }
