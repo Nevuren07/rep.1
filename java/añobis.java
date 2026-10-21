@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class añobis {
     public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);
+        Scanner teclado= new Scanner(System.in);
         System.out.print("Introduce un año: ");
         int mes,dia,tot,N;//definir varialbes utilizadas
         double tott,tots;

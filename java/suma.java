@@ -7,11 +7,19 @@ public class suma {
     a=sc.nextInt();
     System.out.println("Introduce el segundo número");
     b=sc.nextInt();
-    i=a;
+   
+    if(a>b){
+        int aux=a;
+        a=b;
+        b= aux;
+    }
+     i=a;
     total=0;
-    while(i<=b){ 
+    while(i<=b){
+        System.out.println(i); 
        total=total+i;
+       i=i+1;
      }
-    System.out.println(total);
+    System.out.println("la suma de los numeros entre "+a+" y "+b+" es "+total);
     } 
 }  
